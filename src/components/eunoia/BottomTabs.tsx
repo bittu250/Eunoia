@@ -39,15 +39,17 @@ const BottomTabs: React.FC = () => {
           return (
             <button
               key={t.id}
-              onClick={() => {
-                closeAll();
+             onClick={() => {
+  closeAll();
 
-                if (t.id === 'therapy') {
-                  openScreen('human-support');
-                } else {
-                  setCurrentTab(t.id as any);
-                }
-              }}
+  if (t.id === 'therapy') {
+    openScreen('human-support');
+  } else if (t.id === 'chat') {
+    openScreen('ai-companion');
+  } else {
+    setCurrentTab(t.id as any);
+  }
+}}
               className={`flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-2xl transition-all ${
                 active
                   ? 'text-violet-600 dark:text-violet-300'
